@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { svelte } from '@sveltejs/vite-plugin-svelte';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,12 +8,15 @@ export default defineConfig({
       customElement: true
     }
   })],
+  
   build: {
-    target: ["es2015", "esnext"],
+    sourcemap: true,
+    minify: true,
     lib: {
       entry: "src/index.ts",
+      formats: ["es"],
       name: "sussy-components",
-      fileName: (format) => `sussy-components.${format}.js`
-    }
+      fileName: () => `sussy-components.js`
+    },
   }
 })
